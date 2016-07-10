@@ -1,4 +1,4 @@
-package heartbeats;
+package heartbeats.java;
 
 import java.util.Date;
 import java.util.concurrent.locks.Condition;

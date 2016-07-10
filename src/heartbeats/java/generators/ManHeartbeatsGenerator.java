@@ -1,4 +1,4 @@
-package heartbeats.generators;
+package heartbeats.java.generators;
 
 /**
  * Created by Beata Iłowiecka on 10.07.16.
