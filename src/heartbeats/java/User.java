@@ -1,17 +1,20 @@
 package heartbeats.java;
 
 import java.util.Date;
-import java.util.concurrent.locks.Condition;
+
 
 /**
  * Created by Beata Iłowiecka on 10.07.16.
  */
 public class User {
 
-    private Gender gender;
-    private int heartbeats;
-    private Date dateOfBirth;
-    private Condition condition;
     private Life life;
 
+    public User(Date dateOfBirth, int condition, Gender gender) {
+        this.life = new Life(dateOfBirth, condition, gender);
+    }
+
+    public int getHeartbeats() {
+        return life.getHeartbeats();
+    }
 }
