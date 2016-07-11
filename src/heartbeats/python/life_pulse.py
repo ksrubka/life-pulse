@@ -216,9 +216,6 @@ elif condition.lower() == "słaba":
 elif condition.lower() == "zła":
     condition = 6
 
-#lista zawierająca czasy trwania poszczególnych faz
-phases = [phase_18_25, phase_26_35, phase_36_45, phase_46_55, phase_56_65, phase_65_plus]
-
 """Relacja kondycji do wieku oraz ilości uderzeń serca na minutę.
 Klucze słowników to wartości kondycji, zaś indeksy wartości odpowiadają indeksom faz do których należą.
 np. dla klucza == 0 (oznaczającego kondycję wyczynową), wartość o indeksie 0 wynosi 57,
@@ -227,20 +224,20 @@ Dostęp do wartości słowników:
 womanHR[1][0] == 63
 womanHR[6][1] == 83
 menHR[0][0] == 52"""
-womanHR = {0 : [57, 56, 56, 57, 56, 56],\
-           1 : [63, 62, 62, 63, 62, 62],\
-           2 : [68, 66, 67, 68, 66, 66],\
-           3 : [72, 70, 72, 72, 71, 70],\
-           4 : [76, 74, 76, 76, 76, 74],\
-           5 : [82, 80, 82, 80, 80, 80],\
+womanHR = {0 : [57, 56, 56, 57, 56, 56],
+           1 : [63, 62, 62, 63, 62, 62],
+           2 : [68, 66, 67, 68, 66, 66],
+           3 : [72, 70, 72, 72, 71, 70],
+           4 : [76, 74, 76, 76, 76, 74],
+           5 : [82, 80, 82, 80, 80, 80],
            6 : [85, 83, 85, 84, 84, 84]}
 
-menHR = {0 : [52, 52, 53, 54, 54, 52],\
-         1 : [58, 58, 60, 60, 59, 58],\
-         2 : [64, 64, 64, 66, 64, 64],\
-         3 : [68, 68, 68, 70, 70, 68],\
-         4 : [72, 72, 73, 74, 74, 72],\
-         5 : [78, 78, 79, 80, 78, 76],\
+menHR = {0 : [52, 52, 53, 54, 54, 52],
+         1 : [58, 58, 60, 60, 59, 58],
+         2 : [64, 64, 64, 66, 64, 64],
+         3 : [68, 68, 68, 70, 70, 68],
+         4 : [72, 72, 73, 74, 74, 72],
+         5 : [78, 78, 79, 80, 78, 76],
          6 : [82, 82, 83, 84, 82, 80]}
 
 #inicjalizacja ilości uderzeń serca w  ciągu życia
@@ -248,6 +245,9 @@ heartbeats = 0
 
 #liczba uderzeń serca do 18-tego roku życia
 heartbeats +=  (phase_infant * heart_infant) + (phase_child * heart_child) + (phase_teenager * heart_teenager)
+
+#lista zawierająca czasy trwania poszczególnych faz
+phases = [phase_18_25, phase_26_35, phase_36_45, phase_46_55, phase_56_65, phase_65_plus]
 
     #obliczenia dla liczby uderzeń serca powyżej 18-tego roku życia
 #dla każdej fazy powyżej 18 lat
