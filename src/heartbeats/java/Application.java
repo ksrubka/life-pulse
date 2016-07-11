@@ -10,7 +10,7 @@ public class Application {
 
     public static void main(String[] args) {
         Date dateOfBirth = getDateOfBirthFromUser();
-        Condition condition = getConditionFromUser();
+        int condition = getConditionFromUser();
         Gender gender = getGenderFromUser();
 
         User user = new User(dateOfBirth, condition, gender);
@@ -34,6 +34,16 @@ public class Application {
         return new Date(year, month, day, hour, minute, 0);
     }
 
+    public static int getConditionFromUser() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Condition - rate it in scale: \n1 (great) \n2 (very good) \n3 (good) \n4 (above average) " +
+                "\n5 (average) \n6 (poor) \n7 (bad) \nEnter Your condition: ");
+        int condition = reader.nextInt();
+        if (condition > 7 || condition < 1)
+            throw new IllegalArgumentException("No such condition in the system: " + condition);
+        return condition;
+    }
+
     public static Gender getGenderFromUser() {
         Scanner reader = new Scanner(System.in);
         System.out.println("Enter gender (W/M): ");
@@ -43,28 +53,6 @@ public class Application {
         else if (gender.toUpperCase().equals("M"))
             return Gender.MAN;
         else
-            throw new IllegalArgumentException("No such gender in the system.");
-    }
-
-    public static Condition getConditionFromUser() {
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Condition (rate it in scale from 1(great) to 6(bad)): ");
-        int condition = reader.nextInt();
-        switch(condition) {
-            case 1:
-                return Condition.GREAT;
-            case 2:
-                return Condition.VERY_GOOD;
-            case 3:
-                return Condition.GOOD;
-            case 4:
-                return Condition.AVERAGE;
-            case 5:
-                return Condition.POOR;
-            case 6:
-                return Condition.BAD;
-            default:
-                throw new IllegalArgumentException("No such condition in the system.");
-        }
+            throw new IllegalArgumentException("No such gender in the system: " + gender);
     }
 }
